@@ -4,6 +4,7 @@ import ProfileInfoSection from "@/components/partials/profile/ProfileInfoSection
 import ProfileAboutSection from "@/components/partials/profile/ProfileAboutSection.vue";
 import SongsSection from "@/components/partials/profile/SongsSection.vue";
 import YoutubeVideosSection from "@/components/partials/profile/YoutubeVideosSection.vue";
+import PostsSection from "@/components/partials/profile/PostsSection.vue";
 </script>
 
 <template>
@@ -40,5 +41,6 @@ import YoutubeVideosSection from "@/components/partials/profile/YoutubeVideosSec
     </div>
     <SongsSection />
     <YoutubeVideosSection />
+    <PostsSection />
   </div>
 </template>
