@@ -1,6 +1,9 @@
 <script setup>
+import RouterLinkButton from "@/components/global/RouterLinkButton.vue";
 import ProfileInfoSection from "@/components/partials/profile/ProfileInfoSection.vue";
 import ProfileAboutSection from "@/components/partials/profile/ProfileAboutSection.vue";
+import SongsSection from "@/components/partials/profile/SongsSection.vue";
+import YoutubeVideosSection from "@/components/partials/profile/YoutubeVideosSection.vue";
 </script>
 
 <template>
@@ -24,17 +27,18 @@ import ProfileAboutSection from "@/components/partials/profile/ProfileAboutSecti
             </span>
           </div>
           <div class="w-1/2 mt-2">
-            <router-link
-              class="float-right bg-transparent text-gray-900 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded hover:bg-green-500 border-green-500"
-              to=""
-            >
-              Edit Profile
-            </router-link>
+            <RouterLinkButton
+              btnText="Edit Profile"
+              color="green"
+              url="/account/edit-profile"
+            />
           </div>
         </div>
         <ProfileInfoSection />
         <ProfileAboutSection />
       </div>
     </div>
+    <SongsSection />
+    <YoutubeVideosSection />
   </div>
 </template>
