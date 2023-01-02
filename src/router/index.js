@@ -8,6 +8,10 @@ import {
   EditProfile,
   AddSong,
   DeleteSong,
+  AddYoutubeVideo,
+  DeleteYoutubeVideo,
+  CreatePost,
+  EditPost,
 } from "../views";
 
 const routes = [
@@ -49,6 +53,26 @@ const routes = [
         path: "delete-song",
         name: "DeleteSong",
         component: DeleteSong,
+      },
+      {
+        path: "add-youtube-video",
+        name: "AddYoutubeVideo",
+        component: AddYoutubeVideo,
+      },
+      {
+        path: "delete-youtube-video",
+        name: "DeleteYoutubeVideo",
+        component: DeleteYoutubeVideo,
+      },
+      {
+        path: "create-post",
+        name: "CreatePost",
+        component: CreatePost,
+      },
+      {
+        path: "edit-post",
+        name: "EditPost",
+        component: EditPost,
       },
     ],
   },

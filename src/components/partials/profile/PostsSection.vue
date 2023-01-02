@@ -13,7 +13,7 @@ import RouterLinkButton from "@/components/global/RouterLinkButton.vue";
           <RouterLinkButton
             btnText="Create Post"
             color="green"
-            url="/account/add-post"
+            url="/account/create-post"
           />
         </div>
       </div>
@@ -47,7 +47,7 @@ import RouterLinkButton from "@/components/global/RouterLinkButton.vue";
               </p>
               <div class="mt-2 flex items-center justify-end">
                 <router-link
-                  to=""
+                  to="/account/edit-post"
                   class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-1 px-2 rounded-full"
                 >
                   Edit post

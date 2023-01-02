@@ -6,6 +6,10 @@ import ProfileSection from "./account/ProfileSection.vue";
 import EditProfile from "./account/EditProfile.vue";
 import AddSong from "./account/AddSong.vue";
 import DeleteSong from "./account/DeleteSong.vue";
+import AddYoutubeVideo from "./account/AddYoutubeVideo.vue";
+import DeleteYoutubeVideo from "./account/DeleteYoutubeVideo.vue";
+import CreatePost from "./account/CreatePost.vue";
+import EditPost from "./account/EditPost.vue";
 
 export {
   HomeView,
@@ -16,4 +20,8 @@ export {
   EditProfile,
   AddSong,
   DeleteSong,
+  AddYoutubeVideo,
+  DeleteYoutubeVideo,
+  CreatePost,
+  EditPost,
 };
