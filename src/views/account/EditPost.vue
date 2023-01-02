@@ -35,7 +35,7 @@
       <div class="w-full md:w-1/2 px-3">
         <DisplayCropperButton
           label="Post Image"
-          btnText="Add Post Image"
+          btnText="Update Post Image"
           @showModal="showModal = true"
         />
       </div>
