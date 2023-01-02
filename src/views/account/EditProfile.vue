@@ -70,5 +70,6 @@ import SubmitFormButton from "@/components/global/SubmitFormButton.vue";
 let firstName = ref(null);
 let lastName = ref(null);
 let location = ref(null);
+// eslint-disable-next-line no-unused-vars
 let desciption = ref(null);
 </script>

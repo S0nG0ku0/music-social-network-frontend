@@ -26,6 +26,7 @@ const props = defineProps({
   error: String,
 });
 
+// eslint-disable-next-line no-unused-vars
 const { label, description, placeholder, error } = toRefs(props);
 
 const descriptionComputed = computed({
