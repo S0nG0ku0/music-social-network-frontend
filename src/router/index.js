@@ -5,6 +5,7 @@ import {
   LoginView,
   AccountView,
   ProfileSection,
+  EditProfile,
 } from "../views";
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
         path: "profile",
         name: "ProfileSection",
         component: ProfileSection,
+      },
+      {
+        path: "edit-profile",
+        name: "EditProfile",
+        component: EditProfile,
       },
     ],
   },
