@@ -6,6 +6,8 @@ import {
   AccountView,
   ProfileSection,
   EditProfile,
+  AddSong,
+  DeleteSong,
 } from "../views";
 
 const routes = [
@@ -37,6 +39,16 @@ const routes = [
         path: "edit-profile",
         name: "EditProfile",
         component: EditProfile,
+      },
+      {
+        path: "add-song",
+        name: "AddSong",
+        component: AddSong,
+      },
+      {
+        path: "delete-song",
+        name: "DeleteSong",
+        component: DeleteSong,
       },
     ],
   },
