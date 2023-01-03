@@ -10,6 +10,8 @@ import AddYoutubeVideo from "./account/AddYoutubeVideo.vue";
 import DeleteYoutubeVideo from "./account/DeleteYoutubeVideo.vue";
 import CreatePost from "./account/CreatePost.vue";
 import EditPost from "./account/EditPost.vue";
+import PostsSection from "./account/PostsSection.vue";
+import PostById from "./account/PostById";
 
 export {
   HomeView,
@@ -24,4 +26,6 @@ export {
   DeleteYoutubeVideo,
   CreatePost,
   EditPost,
+  PostsSection,
+  PostById,
 };
