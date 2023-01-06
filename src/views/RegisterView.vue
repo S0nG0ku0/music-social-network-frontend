@@ -3,6 +3,7 @@ import axios from "axios";
 import { ref } from "vue";
 import { useUserStore } from "../store/user-store";
 import TextInput from "../components/global/TextInput.vue";
+import "@/axios";
 
 const userStore = useUserStore();
 
@@ -17,7 +18,7 @@ const register = async () => {
   errors.value = [];
 
   try {
-    let res = await axios.post("http://127.0.0.1:8000/api/register", {
+    let res = await axios.post("/register", {
       first_name: firstName.value,
       last_name: lastName.value,
       email: email.value,

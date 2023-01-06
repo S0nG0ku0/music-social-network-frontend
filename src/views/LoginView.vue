@@ -3,6 +3,7 @@ import { ref } from "vue";
 import axios from "axios";
 import { useUserStore } from "../store/user-store";
 import TextInput from "../components/global/TextInput.vue";
+import "@/axios";
 
 const userStore = useUserStore();
 
@@ -14,7 +15,7 @@ const login = async () => {
   errors.value = [];
 
   try {
-    let res = await axios.post("http://127.0.0.1:8000/api/login", {
+    let res = await axios.post("/login", {
       email: email.value,
       password: password.value,
     });

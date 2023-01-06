@@ -1,5 +1,6 @@
 import axios from "axios";
 import { defineStore } from "pinia";
+import "@/axios";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -23,9 +24,7 @@ export const useUserStore = defineStore("user", {
       this.$state.description = res.data.user.description;
     },
     async fetchUser() {
-      let res = await axios.get(
-        "http://127.0.0.1:8000/api/users/" + this.$state.id
-      );
+      let res = await axios.get("users/" + this.$state.id);
 
       this.$state.id = res.data.user.id;
       this.$state.firstName = res.data.user.first_name;

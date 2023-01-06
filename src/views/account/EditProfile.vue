@@ -60,9 +60,8 @@
       <div class="w-full px-3">
         <TextArea
           label="Description"
-          placeholder="Please entre some information"
+          placeholder="Please enter some information here!!!"
           v-model:description="description"
-          :error="errors.description ? errors.description[0] : ''"
         />
       </div>
     </div>
