@@ -1,12 +1,37 @@
 <script setup>
+import axios from "axios";
 import { ref } from "vue";
+import { useUserStore } from "../store/user-store";
 import TextInput from "../components/global/TextInput.vue";
 
+const userStore = useUserStore();
+
+let errors = ref([]);
 let firstName = ref(null);
 let lastName = ref(null);
 let email = ref(null);
 let password = ref(null);
-let confirmPasswword = ref(null);
+let confirmPassword = ref(null);
+
+const register = async () => {
+  errors.value = [];
+
+  try {
+    let res = await axios.post("http://127.0.0.1:8000/api/register", {
+      first_name: firstName.value,
+      last_name: lastName.value,
+      email: email.value,
+      password: password.value,
+      password_confirmation: confirmPassword.value,
+    });
+
+    console.log(res);
+
+    userStore.setUserDetails(res);
+  } catch (err) {
+    errors.value = err.response.data.errors;
+  }
+};
 </script>
 
 <template>
@@ -25,7 +50,7 @@ let confirmPasswword = ref(null);
               placeholder="Jhon"
               v-model:input="firstName"
               inputType="text"
-              error="This is a test error"
+              :error="errors.first_name ? errors.first_name[0] : ''"
             />
           </div>
           <div class="mb-2">
@@ -35,7 +60,7 @@ let confirmPasswword = ref(null);
               placeholder="Repper"
               v-model:input="lastName"
               inputType="text"
-              error="This is a test error"
+              :error="errors.last_name ? errors.last_name[0] : ''"
             />
           </div>
           <div class="mb-2">
@@ -45,7 +70,7 @@ let confirmPasswword = ref(null);
               placeholder="jhon.repper@m.com"
               v-model:input="email"
               inputType="email"
-              error="This is a test error"
+              :error="errors.email ? errors.email[0] : ''"
             />
           </div>
           <div class="mb-2">
@@ -55,7 +80,7 @@ let confirmPasswword = ref(null);
               placeholder="******"
               v-model:input="password"
               inputType="password"
-              error="This is a test error"
+              :error="errors.password ? errors.password[0] : ''"
             />
           </div>
           <div class="mb-2">
@@ -63,7 +88,7 @@ let confirmPasswword = ref(null);
               label="Confirm Password"
               :labelColor="false"
               placeholder="******"
-              v-model:input="confirmPasswword"
+              v-model:input="confirmPassword"
               inputType="password"
             />
           </div>
@@ -71,6 +96,7 @@ let confirmPasswword = ref(null);
           <button
             class="block w-full bg-green-500 text-white rounded-sm py-3 text-sm tracking-wide"
             type="submit"
+            @click="register"
           >
             Register
           </button>

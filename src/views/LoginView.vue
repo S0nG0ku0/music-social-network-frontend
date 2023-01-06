@@ -1,9 +1,31 @@
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
+import { useUserStore } from "../store/user-store";
 import TextInput from "../components/global/TextInput.vue";
 
+const userStore = useUserStore();
+
+let errors = ref([]);
 let email = ref(null);
 let password = ref(null);
+
+const login = async () => {
+  errors.value = [];
+
+  try {
+    let res = await axios.post("http://127.0.0.1:8000/api/login", {
+      email: email.value,
+      password: password.value,
+    });
+
+    console.log(res);
+
+    userStore.setUserDetails(res);
+  } catch (err) {
+    errors.value = err.response.data.errors;
+  }
+};
 </script>
 
 <template>
@@ -22,7 +44,7 @@ let password = ref(null);
               placeholder="jhon.repper@m.com"
               v-model:input="email"
               inputType="email"
-              error="This is a test error"
+              :error="errors.email ? errors.email[0] : ''"
             />
           </div>
           <div class="mb-2">
@@ -32,12 +54,13 @@ let password = ref(null);
               placeholder="******"
               v-model:input="password"
               inputType="password"
-              error="This is a test error"
+              :error="errors.password ? errors.password[0] : ''"
             />
           </div>
           <button
             class="block w-full bg-green-500 text-white rounded-sm py-3 text-sm tracking-wide"
             type="submit"
+            @click="login"
           >
             Login
           </button>
