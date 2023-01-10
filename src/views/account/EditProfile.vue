@@ -53,7 +53,10 @@
     </div>
     <div class="flex flex-wrap mt-4 mb-6">
       <div class="w-full md:w-1/2 px-3">
-        <CroppedImage label="Cropped Image" :image="image" />
+        <CroppedImage
+          label="Cropped Image"
+          :image="'http://127.0.0.1:8000/images/users/' + image"
+        />
       </div>
     </div>
     <div class="flex flex-wrap mt-4 mb-6">
@@ -93,7 +96,7 @@ let firstName = ref(null);
 let lastName = ref(null);
 let location = ref(null);
 let description = ref(null);
-//let imageData = ref(null);
+let imageData = null;
 let image = ref(null);
 let errors = ref([]);
 
@@ -106,7 +109,7 @@ onMounted(() => {
 });
 
 const setCroppedImageData = (data) => {
-  //imageData = data
+  imageData = data;
   image.value = data.imageUrl;
 
   console.log(image);
@@ -122,8 +125,16 @@ const updateUser = async () => {
   data.append("location", location.value || "");
   data.append("description", description.value || "");
 
+  if (imageData) {
+    data.append("image", imageData.file || "");
+    data.append("width", imageData.width || "");
+    data.append("height", imageData.height || "");
+    data.append("left", imageData.left || "");
+    data.append("top", imageData.top || "");
+  }
+
   try {
-    await axios.post("users/" + userStore.id + "?_method=PUT", data);
+    await axios.post("api/users/" + userStore.id + "?_method=PUT", data);
 
     await userStore.fetchUser();
 

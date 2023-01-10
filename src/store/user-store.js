@@ -24,13 +24,14 @@ export const useUserStore = defineStore("user", {
       this.$state.description = res.data.user.description;
     },
     async fetchUser() {
-      let res = await axios.get("users/" + this.$state.id);
+      let res = await axios.get("api/users/" + this.$state.id);
 
       this.$state.id = res.data.user.id;
       this.$state.firstName = res.data.user.first_name;
       this.$state.lastName = res.data.user.last_name;
       this.$state.location = res.data.user.location;
       this.$state.description = res.data.user.description;
+      this.$state.image = res.data.user.image;
     },
     clearUser() {
       this.$state.id = null;
