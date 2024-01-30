@@ -16,7 +16,7 @@
     "pinia-plugin-persistedstate": "^3.0.2",
     "register-service-worker": "^1.7.2",
     "sweetalert2": "^11.7.0",
-    "vue": "^3.2.13",
+    "vue": "^3.4.7",
     "vue-advanced-cropper": "^2.8.6",
     "vue-router": "^4.0.3"
   },
